@@ -159,6 +159,14 @@ function(mygui_app PROJECTNAME SOLUTIONFOLDER)
 			${OPENGL_INCLUDE_DIR}
 		)
 		link_directories(${OPENGL_LIB_DIR})
+        elseif(MYGUI_RENDERSYSTEM EQUAL 8)
+                include_directories(../../Common/Base/VTK)
+                add_definitions("-DMYGUI_VTK_PLATFORM")
+                include_directories(
+                        ${MYGUI_SOURCE_DIR}/Platforms/VTK/VTKPlatform/include
+                        ${VTK_USE_FILE}
+                )
+#                link_directories(${VTK_LIBRARIES})
 	endif()
 	
 	if(MYGUI_SAMPLES_INPUT EQUAL 1)
@@ -219,6 +227,9 @@ function(mygui_app PROJECTNAME SOLUTIONFOLDER)
 		target_link_libraries(${PROJECTNAME} MyGUI.OpenGL3Platform)
 		
 		target_link_libraries(${PROJECTNAME} gdiplus)
+        elseif(MYGUI_RENDERSYSTEM EQUAL 8)
+                add_dependencies(${PROJECTNAME} MyGUI.VTKPlatform)
+                target_link_libraries(${PROJECTNAME} MyGUI.VTKPlatform)
 	endif()
 	target_link_libraries(${PROJECTNAME}
 		MyGUIEngine
@@ -304,6 +315,14 @@ function(mygui_dll PROJECTNAME SOLUTIONFOLDER)
 			${OPENGL_INCLUDE_DIR}
 		)
 		link_directories(${OPENGL_LIB_DIR})
+        elseif(MYGUI_RENDERSYSTEM EQUAL 8)
+                include_directories(../../Common/Base/VTK)
+                add_definitions("-DMYGUI_VTK_PLATFORM")
+                include_directories(
+                        ${MYGUI_SOURCE_DIR}/Platforms/VTK/VTKPlatform/include
+                        ${VTK_USE_FILE}
+                )
+#                link_directories(${VTK_LIBRARIES})
 	endif()
 	
 		
@@ -341,6 +360,9 @@ function(mygui_dll PROJECTNAME SOLUTIONFOLDER)
 		target_link_libraries(${PROJECTNAME} MyGUI.OpenGL3Platform)
 		
 		target_link_libraries(${PROJECTNAME} gdiplus)
+        elseif(MYGUI_RENDERSYSTEM EQUAL 8)
+                add_dependencies(${PROJECTNAME} MyGUI.VTKPlatform)
+                target_link_libraries(${PROJECTNAME} MyGUI.VTKPlatform)
 	endif()
 
 	target_link_libraries(${PROJECTNAME}

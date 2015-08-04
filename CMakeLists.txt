@@ -119,7 +119,8 @@ set(MYGUI_RENDERSYSTEM 3 CACHE STRING
   4 - OpenGL
   5 - Direct3D 9
   6 - Direct3D 11
-  7 - OpenGL 3.x"
+  7 - OpenGL 3.x
+  8 - VTK"
 )
 
 if(MYGUI_RENDERSYSTEM EQUAL 4 OR MYGUI_RENDERSYSTEM EQUAL 7)
@@ -192,6 +193,9 @@ if (CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_C
 		if (MYGUI_RENDERSYSTEM EQUAL 3)
 			# to avoid warnings from OGRE
 			set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -isystem ${OGRE_INCLUDE_DIR}")
+                elseif (MYGUI_RENDERSYSTEM EQUAL 8)
+                        # to avoid warnings from VTK
+                        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -isystem ${VTK_USE_FILE}")
 		endif ()
 		if (MYGUI_SAMPLES_INPUT EQUAL 1 OR MYGUI_SAMPLES_INPUT EQUAL 3)
 			# to avoid warnings from OIS

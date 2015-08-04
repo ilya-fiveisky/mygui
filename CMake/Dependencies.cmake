@@ -80,6 +80,16 @@ elseif(MYGUI_RENDERSYSTEM EQUAL 7)
 		find_package(GLEW)
 		macro_log_feature(GLEW_FOUND "GLEW" "OpenGL Extension Wrangler Library" "" TRUE "" "")
 	endif()
+elseif(MYGUI_RENDERSYSTEM EQUAL 8)
+        # Find VTK
+        find_package(VTK)
+#        find_package(VTK COMPONENTS
+#            vtkFiltersSources
+#            vtkInteractionStyle
+#            vtkRendering${VTK_RENDERING_BACKEND}
+#        )
+        macro_log_feature(VTK_FOUND "VTK" "Support for the VTK render system" "" TRUE "" "")
+
 endif()
 
 #######################################################################

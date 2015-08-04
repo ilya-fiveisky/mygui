@@ -1,0 +1,38 @@
+set (HEADER_FILES
+  include/MyGUI_LastHeader.h
+  include/MyGUI_VTKDataManager.h
+  include/MyGUI_VTKDataStream.h
+  include/MyGUI_VTKDiagnostic.h
+  include/MyGUI_VTKPlatform.h
+  include/MyGUI_VTKRTTexture.h
+  include/MyGUI_VTKRenderManager.h
+  include/MyGUI_VTKTexture.h
+  include/MyGUI_VTKVertexBuffer.h
+)
+set (SOURCE_FILES
+  src/MyGUI_VTKDataManager.cpp
+  src/MyGUI_VTKDataStream.cpp
+  src/MyGUI_VTKRTTexture.cpp
+  src/MyGUI_VTKRenderManager.cpp
+  src/MyGUI_VTKTexture.cpp
+  src/MyGUI_VTKVertexBuffer.cpp
+)
+SOURCE_GROUP("Header Files" FILES
+  include/MyGUI_LastHeader.h
+  include/MyGUI_VTKDataManager.h
+  include/MyGUI_VTKDataStream.h
+  include/MyGUI_VTKDiagnostic.h
+  include/MyGUI_VTKPlatform.h
+  include/MyGUI_VTKRTTexture.h
+  include/MyGUI_VTKRenderManager.h
+  include/MyGUI_VTKTexture.h
+  include/MyGUI_VTKVertexBuffer.h
+)
+SOURCE_GROUP("Source Files" FILES
+  src/MyGUI_VTKDataManager.cpp
+  src/MyGUI_VTKDataStream.cpp
+  src/MyGUI_VTKRTTexture.cpp
+  src/MyGUI_VTKRenderManager.cpp
+  src/MyGUI_VTKTexture.cpp
+  src/MyGUI_VTKVertexBuffer.cpp
+)

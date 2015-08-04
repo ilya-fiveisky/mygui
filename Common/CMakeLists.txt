@@ -109,6 +109,15 @@ elseif(MYGUI_RENDERSYSTEM EQUAL 7)
 		${OPENGL_INCLUDE_DIR}
 	)
 	link_directories(${OPENGL_LIB_DIR})
+elseif(MYGUI_RENDERSYSTEM EQUAL 8)
+        mygui_add_base_manager_source(VTK)
+        add_definitions("-DMYGUI_VTK_PLATFORM")
+        include_directories(
+                ${MYGUI_SOURCE_DIR}/Platforms/VTK/VTKPlatform/include
+                ${VTK_USE_FILE}
+        )
+#	link_directories(${VTK_LIB_DIR})
+
 endif()
 
 if(MYGUI_SAMPLES_INPUT EQUAL 1)
@@ -145,6 +154,10 @@ elseif(MYGUI_RENDERSYSTEM EQUAL 6)
 elseif(MYGUI_RENDERSYSTEM EQUAL 7)
 	add_dependencies(${PROJECTNAME} MyGUI.OpenGL3Platform)
 	target_link_libraries(${PROJECTNAME} MyGUI.OpenGL3Platform)
+elseif(MYGUI_RENDERSYSTEM EQUAL 8)
+        add_dependencies(${PROJECTNAME} MyGUI.VTKPlatform)
+        target_link_libraries(${PROJECTNAME} MyGUI.VTKPlatform)
+
 endif()
 
 add_dependencies(${PROJECTNAME} MyGUIEngine)
