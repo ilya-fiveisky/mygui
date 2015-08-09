@@ -82,12 +82,7 @@ elseif(MYGUI_RENDERSYSTEM EQUAL 7)
 	endif()
 elseif(MYGUI_RENDERSYSTEM EQUAL 8)
         # Find VTK
-        find_package(VTK)
-#        find_package(VTK COMPONENTS
-#            vtkFiltersSources
-#            vtkInteractionStyle
-#            vtkRendering${VTK_RENDERING_BACKEND}
-#        )
+        find_package(VTK 6.0 REQUIRED NO_MODULE)
         macro_log_feature(VTK_FOUND "VTK" "Support for the VTK render system" "" TRUE "" "")
 
 endif()
