@@ -164,7 +164,7 @@ function(mygui_app PROJECTNAME SOLUTIONFOLDER)
                 add_definitions("-DMYGUI_VTK_PLATFORM")
                 include_directories(
                         ${MYGUI_SOURCE_DIR}/Platforms/VTK/VTKPlatform/include
-                        ${VTK_USE_FILE}
+                        ${VTK_INCLUDE_DIRS}
                 )
 #                link_directories(${VTK_LIBRARIES})
 	endif()
@@ -320,7 +320,7 @@ function(mygui_dll PROJECTNAME SOLUTIONFOLDER)
                 add_definitions("-DMYGUI_VTK_PLATFORM")
                 include_directories(
                         ${MYGUI_SOURCE_DIR}/Platforms/VTK/VTKPlatform/include
-                        ${VTK_USE_FILE}
+                        ${VTK_INCLUDE_DIRS}
                 )
 #                link_directories(${VTK_LIBRARIES})
 	endif()
